@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<h2>{{authors.length}}</h2>
+<ul>
+	<li *ngFor="let author of authors" [textContent]="author">
+
+	</li>
+</ul>
+<img [src]="imageUrl" alt="no-image">
+<img src="{{imageUrl}}" alt="no-image" [class.img-thumbnail]="isThumbnail()">
+
+<button (click)="onSave($event)" class="btn btn-success" [class.fs-1]="fontBig" [style.color]="isRed ? 'red' : 'black' " [style.background]="bg">Save</button>
+<input #data (keyup)="inputData(data.value)">
+<input [(ngModel)]="email" (keyup.enter)="inputData2()">
+
+

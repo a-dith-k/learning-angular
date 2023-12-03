@@ -1,0 +1,13 @@
+<div class="zippy">
+  <div (click)="toggle()" [class.backgroundHighlight]="isExpanded" class="zippy-heading fs-4">{{heading}}
+    <i class="bi fs-4"
+       [ngClass]="{'bi-caret-up-fill':isExpanded,
+                 'bi-caret-down-fill':!isExpanded }">
+    </i>
+  </div>
+  <div *ngIf="isExpanded" class="zippy-content">
+    <ng-content  select=".description"></ng-content>
+  </div>
+</div>
+
+

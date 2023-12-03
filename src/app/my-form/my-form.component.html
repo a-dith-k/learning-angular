@@ -1,0 +1,31 @@
+<div class="p-4 ">
+  <form #f="ngForm"  (ngSubmit)="formOnSubmit(f)">
+    <div class="mb-3 col-6">
+      <label for="firstName" class="form-label">firstName</label>
+      <input ngModel
+             required
+             minlength="4"
+             max="10"
+             pattern="Adith"
+             name="firsName"
+             #firstName="ngModel"
+             (change)="showFormControl(firstName)"
+             type="text"
+             id="firstName"
+             class="form-control">
+      <div class=" p-1  text-danger " *ngIf="firstName.errors&&(firstName.touched||firstName.dirty)">
+        <div *ngIf="firstName.errors?.['required']">required</div>
+        <div *ngIf="firstName.errors?.['minlength']">minimum 4 characters required</div>
+        <div *ngIf="firstName.errors?.['pattern']">Pattern is not matching</div>
+      </div>
+    </div>
+    <div class="mb-3 col-6">
+      <div class="form-check">
+        <input ngModel name="isSubscribed" type="checkbox" class="form-check-input">
+        <label  class="form-check-label">check the box for news letters</label>
+      </div>
+    </div>
+    <p>{{f.value |json}}</p>
+    <button [disabled]="!f.valid"  class="btn btn-success">Submit</button>
+  </form>
+</div>

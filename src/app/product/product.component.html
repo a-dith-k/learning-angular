@@ -1,0 +1,28 @@
+<div  *ngIf="listOfProducts.length>0; then productList else noProducts"></div>
+<ng-template #productList >
+    <div class="d-flex flex-wrap justify-content-evenly" >
+      <div  *ngFor="let product of listOfProducts;index as i;even as isEven;last as lastElement">
+        <bootstrap-card>
+          <div class="header text-danger" [class.bg-warning]="lastElement" *ngIf="isEven" >{{i+1}}</div>
+          <div class="header" *ngIf="!isEven"  [class.bg-warning]="lastElement">{{i+1}}</div>
+          <div class="title">{{product.name}}</div>
+          <div class="subtitle">{{product.price}}</div>
+          <div class="text">{{product.category}}>
+          </div>
+          <button (click)="removeProduct(product)" class="button btn btn-sm btn-danger ">delete</button>
+        </bootstrap-card>
+
+
+
+      </div>
+    </div>
+
+
+    </ng-template>
+
+<ng-template #noProducts>
+    No products available
+</ng-template>
+<div [hidden]="listOfProducts.length==0">List Of Products</div>
+<div [hidden]="listOfProducts.length>0">No Products Available</div>
+

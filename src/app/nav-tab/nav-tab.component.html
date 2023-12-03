@@ -1,0 +1,20 @@
+<ul class="nav nav-pills">
+  <li class="nav-item "><a [class.active]="viewMode=='First'"  (click)="viewMode='First'"   class="nav-link">First</a></li>
+  <li class="nav-item "><a [class.active]="viewMode=='Second'" (click)="viewMode='Second'"   class="nav-link ">Second</a></li>
+  <li class="nav-item"><a [class.active]="viewMode=='Third'"  (click)="viewMode='Third'"   class="nav-link">Third</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'First'">
+    First Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, ipsam?
+  </div>
+  <div *ngSwitchCase="'Second'">
+    Second Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, ipsam?
+  </div>
+  <div *ngSwitchCase="'Third'">
+    Third Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, ipsam?
+  </div>
+  <div *ngSwitchDefault>
+    Default Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, ipsam?
+  </div>
+
+</div>

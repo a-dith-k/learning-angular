@@ -1,0 +1,10 @@
+<h1>Pipes Demo</h1>
+<div class="bg-secondary w-50 p-3 text-white fs-5">
+  <span>product name:    </span>{{productName |uppercase}}<br>
+  <span>product price:   </span>{{productPrice |currency:'INR'}}<br>
+  <span>product discount:</span>{{productDiscount |percent}}<br>
+  <span>product stock:   </span>{{productStock|number}}<br>
+  <span>product category:</span>{{productCategory |uppercase}}<br>
+  <span>product mfd:</span>{{productMFD |date:'d-m-y'}}<br>
+  <span>product Description:</span><span (click)="showDescription()">{{productDescription |summary}}</span><br>
+</div>

@@ -1,0 +1,25 @@
+.zippy{
+
+  width:500px;
+  border:2px solid #d3dbdb;
+  border-radius: 3px;
+}
+.zippy-heading{
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5em 0.5em 0.5em;
+}
+.zippy-content{
+  padding: 0.5em 0.5em 0.5em;
+}
+
+.bi{
+    float:right;
+}
+
+.backgroundHighlight{
+    background: #cccccc;
+}
+
+
+
