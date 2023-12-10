@@ -20,6 +20,7 @@ import { ProductComponent } from './product/product.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
 import { MyFormComponent } from './my-form/my-form.component';
+import { CourseFormComponent } from './course-form/course-form.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MyFormComponent } from './my-form/my-form.component';
     ProductComponent,
     InputFormatDirective,
     ZippyComponent,
-    MyFormComponent
+    MyFormComponent,
+    CourseFormComponent
   ],
   imports: [
     BrowserModule,

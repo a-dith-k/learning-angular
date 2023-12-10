@@ -12,7 +12,7 @@ export class AppComponent {
 
 
   post={
-    title:'Title of the Post',
+    title:null,
     isFavourite:true
   }
 

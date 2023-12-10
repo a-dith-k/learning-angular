@@ -8,6 +8,18 @@ import {NgForm, NgModel} from "@angular/forms";
 })
 export class MyFormComponent {
 
+  contactMethods
+    =[
+      {id:1,name:'Phone'},
+      {id:2,name:'Email'}
+    ]
+
+  nativeLanguages
+    =[
+    {id:1,name:'Malayalam'},
+    {id:2,name:'English'}
+  ]
+
   showFormControl(firstName: NgModel) {
     console.log(firstName);
   }

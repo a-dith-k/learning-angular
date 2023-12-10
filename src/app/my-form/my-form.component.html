@@ -19,10 +19,39 @@
         <div *ngIf="firstName.errors?.['pattern']">Pattern is not matching</div>
       </div>
     </div>
+      <div ngModelGroup="contact" #contact="ngModelGroup">
+        <ng-template [ngIf]="contact.invalid&&contact.touched">Contact details are not correct</ng-template>
+        <div class="mb-3 col-6">
+          <label  for="phoneNumber" class="form-label">Phone Number</label>
+          <input required ngModel name="phoneNumber" type="text" id="phoneNumber" class="form-control">
+        </div>
+        <div class="mb-3 col-6">
+          <label for="emailId" class="form-label">Email Id</label>
+          <input required ngModel name="emailId" type="text" id="emailId" class="form-control">
+        </div>
+      </div>
+
     <div class="mb-3 col-6">
       <div class="form-check">
         <input ngModel name="isSubscribed" type="checkbox" class="form-check-input">
         <label  class="form-check-label">check the box for news letters</label>
+      </div>
+    </div>
+    <div class="mb-3 col-6">
+      <label for="contactMethods" class="form-label">
+        Contact Methods
+      </label>
+      <select multiple  class="form-control" ngModel name="contactMethods" id="contactMethods">
+        <option value=""></option>
+        <option  *ngFor="let method of contactMethods"  [ngValue]="method">{{method.name}}</option>
+      </select>
+    </div>
+    <div class="mb-3 col-6">
+      <div *ngFor="let lang of nativeLanguages"  class="form-check">
+        <label>
+          {{lang.name}}
+          <input class="form-check-input" ngModel name="nativeLanguages" value="{{lang.id}}" type="radio">
+        </label>
       </div>
     </div>
     <p>{{f.value |json}}</p>
