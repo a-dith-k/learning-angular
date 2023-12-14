@@ -1,0 +1,49 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+  <div *ngIf="form.errors" class="alert alert-danger col-6">
+    <div *ngIf="form.errors?.['invalidLogin']">
+       username or password invalid
+    </div>
+    <div *ngIf="form.errors?.['usernameInvalid']">
+      username is incorrect
+    </div>
+  </div>
+  <div formGroupName="account">
+      <div class="col-6 mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input formControlName="username"
+               type="text"
+               id="username"
+               class="form-control">
+        <div *ngIf="username?.touched &&username?.invalid" class="alert alert-danger p-1">
+          <div *ngIf="username?.errors?.['required']">username required</div>
+          <div *ngIf="username?.errors?.['minlength']">Minimum Length of 4 is required</div>
+          <div *ngIf="username?.errors?.['cannotContainSpace']">Username cannot contain space</div>
+          <div *ngIf="username?.errors?.['shouldBeUnique']">Username is already taken</div>
+
+        </div>
+        <div *ngIf="username?.pending">Checking for Uniqueness</div>
+      </div>
+      <div class="col-6 mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input  formControlName="password"
+                type="text"
+               id="password"
+               class="form-control">
+      </div>
+  </div>
+  <div class="col-6 mb-3">
+    <label for="courses" class="form-label">Courses</label>
+    <input #course (keyup.enter)="addCourse(course)" type="text" class="form-control" id="courses">
+  </div>
+  <div>
+    <ul class="list-group">
+      <li *ngFor="let topic of courses.controls"
+          class="list-group-item"
+          (click)="removeTopic(topic)">
+        {{topic.value}}
+
+      </li>
+    </ul>
+  </div>
+  <button class="btn btn-primary">Sign up</button>
+</form>
